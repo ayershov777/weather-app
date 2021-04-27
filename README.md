@@ -10,6 +10,8 @@ Features included:
   - Today's weather
   - Five day forecast
   - Change city
+  - Mobile friendly
+  - Detect user's location on page load
 
 Here are some things that I would do to test my application and ensure reliability
 
