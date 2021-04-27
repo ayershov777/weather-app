@@ -13,7 +13,8 @@ function App() {
   }, []);
 
   if(!weather) {
-    return <div>Loading weather data...</div>
+    // loading fallback
+    return <div></div> 
   }
   
   return (
