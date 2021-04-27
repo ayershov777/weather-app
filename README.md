@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+## Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Summary
 
-## Available Scripts
+Weather App uses the OpenWeather API. The /weather endpoint is used to obtain data about today (local time), and the /forecast endpoint is used to obtain data about the next 5 days (GMT)
 
-In the project directory, you can run:
+Given the limited amount of time I had to complete this, I did my best to keep things as simple as possible. There are a few things I wish I had more time to work on, such as writing unit tests, documenting my code, cleaning up some of my data massaging logic, making the network request functions more modular. Also I would have liked to create an hourly breakdown of five-day weather data - but I did not have time to do this reliably.
 
-### `yarn start`
+Features included:
+  - Today's weather
+  - Five day forecast
+  - Change city
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here are some things that I would do to test my application and ensure reliability
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Write unit tests for the WeatherService module, to help design the WeatherService code a little better and to prevent regressions moving forward. The OpenWeather API website allows users to download bulk data, which would be useful for creating reliable mocks.
 
-### `yarn test`
+1. Create snapshot tests for JSX, to prevent regressions moving forward and to easily visualize the generated markup.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Use TypeScript. My code makes a few assumptions about the data that is coming back from the OpenWeather API, and these would be ironed out during the process of creating type definitions and defining a reliable schema for the OpenWeather responses. This would also provide documentation, which would be useful if the project grows in size (or if I'm working on a team).
+1. Validate the city field input. I did not have time to do this properly.
+1. Create fallbacks for OpenWeather error responses, and for browsers that don't support navigator.geolocation
+1. Create a backend to make the OpenWeather requests, and hide the API key in an ENV file.
