@@ -1,8 +1,8 @@
 ## Weather App
 
-### Summary
-
 link: https://ayershov777.github.io/weather-app/
+
+### Summary
 
 Weather App uses the OpenWeather API. The /weather endpoint is used to obtain data about today (local time), and the /forecast endpoint is used to obtain data about the next 5 days (GMT)
 
