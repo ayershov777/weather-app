@@ -2,6 +2,8 @@
 
 ### Summary
 
+link: https://ayershov777.github.io/weather-app/
+
 Weather App uses the OpenWeather API. The /weather endpoint is used to obtain data about today (local time), and the /forecast endpoint is used to obtain data about the next 5 days (GMT)
 
 Given the limited amount of time I had to complete this, I did my best to keep things as simple as possible. There are a few things I wish I had more time to work on, such as writing unit tests, documenting my code, cleaning up some of my data massaging logic, making the network request functions more modular. Also I would have liked to create an hourly breakdown of five-day weather data - but I did not have time to do this reliably.
